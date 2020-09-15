@@ -32,6 +32,7 @@ enum Algorithm {
     Bsp,
 }
 
+//TODO make it a web service
 fn main() {
 
     let child = thread::spawn(move || -> String {
@@ -42,8 +43,8 @@ fn main() {
         let seed_u8 = array_ref!(seed.as_bytes(), 0, 32);
         let mut rng: StdRng = SeedableRng::from_seed(*seed_u8);
 
-        let board_width = 100;
-        let board_height = 100;
+        let board_width = 50;
+        let board_height = 50;
 
         let level = BspLevel::new(board_width, board_height, &seed, &mut rng);
         println!("{}", level);
